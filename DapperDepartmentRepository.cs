@@ -16,7 +16,7 @@ namespace DapperBestBuyPractice
 
         public IEnumerable<Department> GetAllDepartments()
         {
-            return _connection.Query<Department>("SELECT * FROM departments;");
+            return _connection.Query<Department>("SELECT * FROM bestbuy.departments;");
         }
     }
 }

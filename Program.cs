@@ -6,7 +6,7 @@ using System.IO;
 
 namespace DapperBestBuyPractice
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,6 +17,15 @@ namespace DapperBestBuyPractice
 
             string connString = config.GetConnectionString("DefaultConnection");
             IDbConnection conn = new MySqlConnection(connString);
+
+            var repo = new DapperDepartmentRepository(conn);
+
+            var departments = repo.GetAllDepartments();
+
+                foreach(var dept in departments)
+            {
+                Console.WriteLine($"{dept.DepartmentID} {dept.Name}");
+            }
         }
     }
 }
